@@ -24,9 +24,7 @@ export const FILTERED_PRODUCTS = (state, name) => {
     name = removerAccent(name.trim().toLowerCase());
     state.filteredProducts = state.products.filter((product) => {
       return (
-        product.slug.toLowerCase().includes(name) ||
-        product.name.toLowerCase().includes(name) ||
-        product.type.toLowerCase().includes(name)
+        product.name.toLowerCase().includes(name) 
       );
     });
   }

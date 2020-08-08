@@ -1,7 +1,7 @@
 <template>
   <div class="formSearch">
     <form>
-      <input v-model="products" type="text" size="60" autofocus />
+      <input type="search" v-model="searchProduct" size="60" autofocus />
       <button>Search</button>
     </form>
   </div>
@@ -11,8 +11,18 @@
 export default {
   data() {
     return {
-      products: ''
-    }
+      products: "",
+    };
+  },
+  computed: {
+    searchProduct: {
+      get() {
+        return this.$store.state.searchProduct;
+      },
+      set(value) {
+        this.$store.dispatch("filteredProducts", value);
+      },
+    },
   },
 };
 </script>
@@ -29,7 +39,6 @@ input {
   margin-right: 15px;
   border: none;
   border-radius: 5px;
-  
 }
 
 button {

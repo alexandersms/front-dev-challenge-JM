@@ -9,17 +9,15 @@
 </template>
 
 <script>
-import PosterTitle from "./components/Poster/PosterTitle.vue";
-import PosterImage from "./components/Poster/PosterImage.vue";
-import ProductList from "./components/Products/ProductList.vue";
-import Products from './views/Products.vue';
+import PosterTitle from "./views/Poster/PosterTitle.vue";
+import PosterImage from "./views/Poster/PosterImage.vue";
+import Products from './views/Products/Products.vue';
 
 export default {
   name: "app",
   components: {
     PosterTitle,
     PosterImage,
-    ProductList,
     Products
   },
 };

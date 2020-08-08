@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import SearchBar from "../components/Search/SearchBar.vue";
-import ProductList from "../components/Products/ProductList.vue";
+import SearchBar from "../../components/Search/SearchBar.vue";
+import ProductList from "../../components/Products/ProductList.vue";
 
 export default {
   components: {
