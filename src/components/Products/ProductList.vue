@@ -1,5 +1,5 @@
 <template>
-  <div class="productList">
+  <div class="container productList">
     <ul>
       <li v-for="product in filteredProducts" :key="product.id">
         <strong>{{ product.brand }}</strong> - {{ product.name }}
@@ -30,7 +30,7 @@ export default {
 <style scoped>
 .productList {
   display: grid;
-  justify-content: start;
+  justify-content: center;
   margin-top: 25px;
 }
 </style>

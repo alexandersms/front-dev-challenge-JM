@@ -1,24 +1,25 @@
 <template>
-  <div class="posterTitle">
-      <h2 class="title">This is a page for <br> beauty product search</h2>
+  <div class="col-lg-6 col-md-12 col-sm-12 posterTitle">
+      <h2 class="title font-weight-bold text-center">This is a page for beauty product search</h2>
   </div>
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
 <style scoped>
-  .posterTitle{
-    background-color: #55D7FF;
-    display: grid;
-    grid-column: 1/2;
+.posterTitle {
+  background-color: #55d7ff;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
 
-    align-content: center;
-    justify-content: center;
+h2{
+  padding: 0 25%; 
+  font-size: 1.8rem;
+}
 
-    text-align: center;
+@media (max-width: 768px) {
+  .posterTitle {
+    padding: 200px 0;
   }
+}
 </style>

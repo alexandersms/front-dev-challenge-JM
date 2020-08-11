@@ -1,5 +1,5 @@
 <template>
-  <div class="products">
+  <div class="col-lg-12 col-md-12 col-sm-12 products">
     <div class="productsContent">
       <SearchBar />
       <ProductList />
@@ -27,13 +27,7 @@ export default {
 .products {
   background-color: #db0992;
   color: #fff;
-  grid-column: 1/-1;
-
-  justify-content: center;
+  height: auto;
 }
 
-.productsContent{
-    /*background-color: red;*/
-    margin: auto 450px;
-}
 </style>

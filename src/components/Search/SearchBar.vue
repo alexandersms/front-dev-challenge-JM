@@ -1,8 +1,10 @@
 <template>
-  <div class="formSearch">
+  <div class="container formSearch">
     <form>
-      <input type="search" v-model="searchProduct" size="60" autofocus />
+    
+      <input class="searchProduct" type="search" v-model="searchProduct" size="60" autofocus />
       <button>Search</button>
+      
     </form>
   </div>
 </template>
@@ -35,14 +37,14 @@ export default {
 }
 
 input {
-  padding: 5px 0;
+  padding: 7px;
   margin-right: 15px;
   border: none;
   border-radius: 5px;
 }
 
 button {
-  padding: 5px 15px;
+  padding: 7px 15px;
   background-color: #55d7ff;
   font-weight: 500;
   border: none;
@@ -52,5 +54,17 @@ button {
 
 button:hover {
   background-color: #42a9c9;
+}
+
+@media (max-width: 768px) {
+  input {
+    width: 80%;
+  }
+}
+
+@media (max-width: 416px) {
+  input {
+    width: 60%;
+  }
 }
 </style>
