@@ -1,11 +1,26 @@
 <template>
   <div class="container formSearch">
-    <form>
-    
-      <input class="searchProduct" type="search" v-model="searchProduct" size="60" autofocus />
-      <button>Search</button>
+    <form @submit.prevent>
+      <input 
+        class="searchProduct" 
+        type="search" 
+        v-model="searchProduct" 
+        @keydown.enter.prevent="fetchProduct" 
+        size="60" 
+        autofocus 
+        />
+      <button @click="fetchProduct">Search</button>
       
     </form>
+
+    <!-- PRODUCT LIST COMPONENT -->
+    <ul v-if="isVisible">
+      <li v-for="product in filteredProducts" :key="product.id">
+        <strong>{{ product.brand }}</strong> - {{ product.name }}
+      </li>
+    </ul>
+    <!---->
+
   </div>
 </template>
 
@@ -13,7 +28,7 @@
 export default {
   data() {
     return {
-      products: "",
+      isVisible: false,
     };
   },
   computed: {
@@ -24,6 +39,23 @@ export default {
       set(value) {
         this.$store.dispatch("filteredProducts", value);
       },
+    },
+    filteredProducts() {
+      try {
+        let a = this.$store.getters.getFilteredProducts;
+        //this.$store.getters.allProducts;
+        //console.log(a);
+        return a;
+      } catch (error) {
+        return error.message;
+        //console.log(error);
+      }
+    },
+  },
+  methods: {
+    fetchProduct() {
+      this.searchProduct;
+      this.isVisible = true;
     },
   },
 };

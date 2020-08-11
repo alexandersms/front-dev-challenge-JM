@@ -1,5 +1,5 @@
 <template>
-  <div class="container productList">
+  <div class="container mt-3 productList">
     <ul>
       <li v-for="product in filteredProducts" :key="product.id">
         <strong>{{ product.brand }}</strong> - {{ product.name }}

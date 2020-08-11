@@ -2,11 +2,16 @@
   <div id="app">
     <div class="container-fluid">
       <div class="row">
-
+          <!-- POSTERTITLE COMPONENT -->
           <PosterTitle />
-      
+          
+          <!-- POSTERIMAGE COMPONENT -->
           <PosterImage />
-        
+          
+          <!--
+            PRODUCT COMPONENT
+            This component displays two components, the SearchBar and the list of products
+          -->
           <Products/>
         
       </div>
