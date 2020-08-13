@@ -3,6 +3,7 @@
 
     <div class="productsContent">
 
+      <!-- SEARCHBAR COMPONENT -->
       <SearchBar />
       
     </div>
@@ -11,16 +12,14 @@
 </template>
 
 <script>
+
+//import SearchBar Component
 import SearchBar from "../../components/Search/SearchBar.vue";
 
 export default {
   components: {
     SearchBar,
-  },
-
-  mounted () {
-    this.$store.dispatch('getProducts');
-  },
+  }
 };
 </script>
 

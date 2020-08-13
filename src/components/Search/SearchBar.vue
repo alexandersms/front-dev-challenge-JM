@@ -1,6 +1,8 @@
 <template>
   <div class="container formSearch">
+
     <form @submit.prevent>
+
       <input 
         class="searchProduct" 
         type="search" 
@@ -10,6 +12,7 @@
         size="60" 
         autofocus 
         />
+        
       <button @click="fetchProduct">Search</button>
       
     </form>
@@ -21,14 +24,15 @@
         
     </div>
     
+    <!-- Conditional Rendering -->
     <div v-if="isNoSearch" class="alert alert-danger mt-1" role="alert">Enter the name of a product please</div>
-    <div v-if="isNoMatch" class="alert alert-danger mt-1" role="alert">Product not found</div>
-    <!---->
-
+    <div v-if="isNoMatch" class="alert alert-danger" role="alert">Product not found</div>
+    
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex"
 import ProductList from "../Products/ProductList.vue";
 
 export default {
@@ -61,7 +65,11 @@ export default {
       }
     },
   },
+  mounted () {
+    this.getProducts();
+  },
   methods: {
+    ...mapActions(["getProducts"]),
     fetchProduct() {
       if (!this.searchProduct) {
         this.isNoSearch = true;
