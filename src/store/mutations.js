@@ -23,7 +23,13 @@ export const FILTERED_PRODUCTS = (state, name) => {
     state.searchProduct = name;
     name = removerAccent(name.trim().toLowerCase());
     state.filteredProducts = state.products.filter((product) => {
-      return product.name.toLowerCase().includes(name);
+      if(product.name === ""){
+        state.errormessage = "Le champ est vide"
+      } else if(!product.name){
+        state.errormessage = "Produit non trouvé"
+      } else {
+        return product.name.toLowerCase().includes(name);
+      }
     });
   }
 };

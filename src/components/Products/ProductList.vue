@@ -1,36 +1,13 @@
 <template>
-  <div class="container mt-3 productList">
-    <ul>
-      <li v-for="product in filteredProducts" :key="product.id">
-        <strong>{{ product.brand }}</strong> - {{ product.name }}
-      </li>
-    </ul>
+  <div class="productList">
+      <strong>. {{ product.brand }}</strong> - {{ product.name }}       
   </div>
 </template>
 
 <script>
+
 export default {
-  computed: {
-    filteredProducts() {
-      try {
-        let a =
-          this.$store.getters.getFilteredProducts ||
-          this.$store.getters.allProducts;
-        //console.log(a);
-        return a;
-      } catch (error) {
-        return error.message
-        //console.log(error);
-      }
-    },
-  },
+  name: "ProductList",
+  props: ['product']
 };
 </script>
-
-<style scoped>
-.productList {
-  display: grid;
-  justify-content: center;
-  margin-top: 25px;
-}
-</style>

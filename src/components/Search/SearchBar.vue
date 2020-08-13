@@ -6,6 +6,7 @@
         type="search" 
         v-model="searchProduct" 
         @keydown.enter.prevent="fetchProduct" 
+        @keydown.delete.prevent="resetProduct"
         size="60" 
         autofocus 
         />
@@ -14,21 +15,32 @@
     </form>
 
     <!-- PRODUCT LIST COMPONENT -->
-    <ul v-if="isVisible">
-      <li v-for="product in filteredProducts" :key="product.id">
-        <strong>{{ product.brand }}</strong> - {{ product.name }}
-      </li>
-    </ul>
+    <div v-if="isVisible" class="mt-4">
+
+        <ProductList v-for="product in filteredProducts" :key="product.id" :product="product"/>
+        
+    </div>
+    
+    <div v-if="isNoSearch" class="alert alert-danger mt-1" role="alert">Enter the name of a product please</div>
+    <div v-if="isNoMatch" class="alert alert-danger mt-1" role="alert">Product not found</div>
     <!---->
 
   </div>
 </template>
 
 <script>
+import ProductList from "../Products/ProductList.vue";
+
 export default {
+  name: "SearchBar",
+  components: {
+    ProductList,
+  },
   data() {
     return {
       isVisible: false,
+      isNoMatch: false,
+      isNoSearch: false,
     };
   },
   computed: {
@@ -43,20 +55,28 @@ export default {
     filteredProducts() {
       try {
         let a = this.$store.getters.getFilteredProducts;
-        //this.$store.getters.allProducts;
-        //console.log(a);
         return a;
       } catch (error) {
         return error.message;
-        //console.log(error);
       }
     },
   },
   methods: {
     fetchProduct() {
-      this.searchProduct;
-      this.isVisible = true;
+      if (!this.searchProduct) {
+        this.isNoSearch = true;
+      } else if (this.searchProduct === "") {
+        this.isNoMatch = true;
+      } else {
+        this.searchProduct;
+        this.isVisible = true;
+        this.isNoSearch = false;
+        this.isNoMatch = false;
+      }
     },
+    resetProduct(){
+      this.searchProduct = ""
+    }
   },
 };
 </script>

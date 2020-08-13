@@ -29,7 +29,7 @@ export default {
 .products {
   background-color: #db0992;
   color: #fff;
-  padding: 0 0 20% 0;
+  padding: 0 0 15% 0;
 }
 
 </style>
