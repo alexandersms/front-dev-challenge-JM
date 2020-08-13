@@ -15,4 +15,9 @@ context('Actions', () => {
         cy.contains('button', 'Search').click()
     })
 
+    it('Send nothing', () => {
+      cy.get('.searchProduct')
+      cy.contains('button', 'Search').click()
+  })
+
 })
