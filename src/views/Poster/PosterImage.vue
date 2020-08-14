@@ -8,10 +8,6 @@
   </div>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style>
 .posterImage {
   padding-left: 0 !important;

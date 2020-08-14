@@ -11,8 +11,10 @@ context('Actions', () => {
 
     it('Search products', () => {
         cy.get('.searchProduct')
-          .type('radiant').should('have.value', 'radiant')
-        cy.contains('button', 'Search').click()
+          .type('cream')
+        cy.wait(3500)
+        cy.get('body').trigger('keypress', {keycode: 192, release: false})
+        cy.wait(3000)
     })
 
     it('Send nothing', () => {

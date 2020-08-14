@@ -18,18 +18,11 @@ export const FILTERED_PRODUCTS = (state, name) => {
   if (!name || name === "{}") {
     state.searchProduct = null;
     state.filteredProducts = null;
-    state.errormessage = "Produit non trouvé"
   } else {
     state.searchProduct = name;
     name = removerAccent(name.trim().toLowerCase());
     state.filteredProducts = state.products.filter((product) => {
-      if(product.name === ""){
-        state.errormessage = "Le champ est vide"
-      } else if(!product.name){
-        state.errormessage = "Produit non trouvé"
-      } else {
         return product.name.toLowerCase().includes(name);
-      }
     });
   }
 };

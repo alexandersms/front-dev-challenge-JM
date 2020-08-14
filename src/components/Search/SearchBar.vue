@@ -25,8 +25,8 @@
     </div>
     
     <!-- Conditional Rendering -->
+    <div v-if="isNoMatch" class="alert alert-danger mt-1" role="alert">Product not found</div>
     <div v-if="isNoSearch" class="alert alert-danger mt-1" role="alert">Enter the name of a product please</div>
-    <div v-if="isNoMatch" class="alert alert-danger" role="alert">Product not found</div>
     
   </div>
 </template>
@@ -73,9 +73,17 @@ export default {
     fetchProduct() {
       if (!this.searchProduct) {
         this.isNoSearch = true;
-      } else if (this.searchProduct === "") {
+        this.isNoMatch = false;
+        console.log("IS NO SEARCH");
+      }
+
+      else if (this.filteredProducts.length === 0) {
         this.isNoMatch = true;
-      } else {
+        this.isNoSearch = false;
+        console.log("IS NO MATCH");
+      }
+
+      else {
         this.searchProduct;
         this.isVisible = true;
         this.isNoSearch = false;
@@ -83,7 +91,8 @@ export default {
       }
     },
     resetProduct(){
-      this.searchProduct = ""
+      this.searchProduct = "";
+      this.isVisible = false;
     }
   },
 };

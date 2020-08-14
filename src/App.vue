@@ -39,16 +39,8 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: red;
   height: auto;
   color: #2c3e50;
 }
-/*
-.containers {
-  display: grid;
 
-  grid-template-rows: repeat(2, 50vh);
-  grid-template-columns: repeat(2, 50%);
-}
-*/
 </style>
