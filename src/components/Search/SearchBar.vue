@@ -74,13 +74,11 @@ export default {
       if (!this.searchProduct) {
         this.isNoSearch = true;
         this.isNoMatch = false;
-        console.log("IS NO SEARCH");
       }
 
       else if (this.filteredProducts.length === 0) {
         this.isNoMatch = true;
         this.isNoSearch = false;
-        console.log("IS NO MATCH");
       }
 
       else {
